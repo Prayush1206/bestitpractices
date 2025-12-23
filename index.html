@@ -30,6 +30,7 @@
         
         body {
             font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
         
         h1, h2, h3, h4, .font-display {
@@ -62,6 +63,21 @@
         #mobile-menu.active {
             max-height: 500px;
         }
+
+        /* Legal Details Animation */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary ~ * {
+            animation: sweep .3s ease-in-out;
+        }
+        @keyframes sweep {
+            0%    {opacity: 0; transform: translateY(-10px)}
+            100%  {opacity: 1; transform: translateY(0)}
+        }
     </style>
 </head>
 <body class="text-slate-600 antialiased bg-slate-50">
@@ -70,8 +86,8 @@
     <div class="bg-slate-900 border-b border-slate-800 py-2 hidden md:block">
         <div class="container mx-auto px-6 flex justify-between items-center text-sm text-slate-400">
             <div class="flex items-center space-x-6">
-                <span><i class="fas fa-envelope mr-2 text-secondary"></i>contact@bestitpractices.com</span>
-                <span><i class="fas fa-phone mr-2 text-secondary"></i>+91-9876543210</span>
+                <span><i class="fas fa-envelope mr-2 text-secondary"></i>bestitpractices@gmail.com</span>
+                <span><i class="fas fa-phone mr-2 text-secondary"></i>+91-7237995078</span>
             </div>
             <div class="flex items-center space-x-4">
                 <a href="#" class="hover:text-white transition">Client Portal</a>
@@ -328,18 +344,6 @@
         </div>
     </section>
 
-    <!-- Partner Banner -->
-    <section class="py-12 bg-slate-900 border-t border-slate-800">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-slate-400 uppercase tracking-widest text-xs mb-8 font-semibold">Our Strategic Alliances</p>
-            <div class="flex justify-center items-center opacity-80 hover:opacity-100 transition">
-                <div class="text-4xl font-bold text-white flex items-center gap-4">
-                   <i class="fas fa-handshake text-secondary"></i> ORACLE <span class="bg-white text-slate-900 text-xs px-2 py-1 rounded font-bold uppercase tracking-wide">Gold Partner</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact CTA -->
     <section id="contact" class="py-24 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-r from-violet-600 to-indigo-600"></div>
@@ -350,12 +354,82 @@
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Elevate Your IT Strategy?</h2>
             <p class="text-violet-100 mb-10 max-w-2xl mx-auto text-lg">Join the hundreds of companies transforming their future with Best IT Practices.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="mailto:contact@bestitpractices.com" class="px-10 py-4 bg-white text-indigo-600 font-bold rounded-full hover:bg-slate-50 transition shadow-2xl">
+                <a href="mailto:bestitpractices@gmail.com" class="px-10 py-4 bg-white text-indigo-600 font-bold rounded-full hover:bg-slate-50 transition shadow-2xl">
                     Contact Our Experts
                 </a>
                 <a href="#" class="px-10 py-4 bg-transparent border-2 border-white/30 text-white font-bold rounded-full hover:bg-white/10 transition">
                     Schedule Audit
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Information Sections (Added per request) -->
+    <section class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12">
+                <h3 class="text-2xl font-bold text-slate-900">Legal Information & Policies</h3>
+                <p class="text-slate-500">Transparency is key to our partnership.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Privacy Policy -->
+                <details id="privacy" class="group bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <summary class="flex items-center justify-between p-5 cursor-pointer bg-white hover:bg-slate-50 transition">
+                        <h4 class="font-bold text-lg text-slate-800"><i class="fas fa-user-shield text-secondary mr-3"></i>Privacy Policy</h4>
+                        <span class="transform group-open:rotate-180 transition-transform duration-300 text-slate-400">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="p-6 border-t border-slate-100 text-slate-600 text-sm leading-relaxed space-y-4">
+                        <p><strong>Effective Date:</strong> January 1, 2024</p>
+                        <p>At Best IT Practices, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our services.</p>
+                        <h5 class="font-bold text-slate-800">1. Information Collection</h5>
+                        <p>We collect information you provide directly to us, such as when you fill out a contact form, request a quote, or communicate with us. This may include your name, email address, phone number, and company details.</p>
+                        <h5 class="font-bold text-slate-800">2. Use of Information</h5>
+                        <p>We use the information we collect to provide, maintain, and improve our services, respond to your comments and questions, and send you related information, including invoices and technical notices.</p>
+                        <h5 class="font-bold text-slate-800">3. Data Security</h5>
+                        <p>We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction.</p>
+                    </div>
+                </details>
+
+                <!-- Terms & Conditions -->
+                <details id="terms" class="group bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <summary class="flex items-center justify-between p-5 cursor-pointer bg-white hover:bg-slate-50 transition">
+                        <h4 class="font-bold text-lg text-slate-800"><i class="fas fa-file-contract text-secondary mr-3 w-5 text-center"></i>Terms & Conditions</h4>
+                        <span class="transform group-open:rotate-180 transition-transform duration-300 text-slate-400">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="p-6 border-t border-slate-100 text-slate-600 text-sm leading-relaxed space-y-4">
+                        <p>Welcome to Best IT Practices. By accessing our website and using our services, you agree to comply with and be bound by the following terms and conditions.</p>
+                        <h5 class="font-bold text-slate-800">1. Services</h5>
+                        <p>Best IT Practices provides IT consulting, software development, and digital transformation services. Detailed scope of work will be defined in individual service agreements.</p>
+                        <h5 class="font-bold text-slate-800">2. Intellectual Property</h5>
+                        <p>All content included on this site, such as text, graphics, logos, and software, is the property of Best IT Practices or its content suppliers and protected by international copyright laws.</p>
+                        <h5 class="font-bold text-slate-800">3. Limitation of Liability</h5>
+                        <p>In no event shall Best IT Practices be liable for any direct, indirect, incidental, special, or consequential damages arising out of the use or inability to use our services.</p>
+                    </div>
+                </details>
+
+                <!-- Refund & Cancellation -->
+                <details id="refund" class="group bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <summary class="flex items-center justify-between p-5 cursor-pointer bg-white hover:bg-slate-50 transition">
+                        <h4 class="font-bold text-lg text-slate-800"><i class="fas fa-undo text-secondary mr-3 w-5 text-center"></i>Refund & Cancellation Policy</h4>
+                        <span class="transform group-open:rotate-180 transition-transform duration-300 text-slate-400">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="p-6 border-t border-slate-100 text-slate-600 text-sm leading-relaxed space-y-4">
+                        <p>We strive to ensure complete satisfaction with our services. This policy outlines the terms for cancellations and refunds.</p>
+                        <h5 class="font-bold text-slate-800">1. Cancellation by Client</h5>
+                        <p>Clients may cancel services by providing written notice as per the terms specified in the Service Agreement. Cancellation fees may apply depending on the stage of the project.</p>
+                        <h5 class="font-bold text-slate-800">2. Refunds</h5>
+                        <p>Refunds are processed on a case-by-case basis. For retainer-based services, unused hours may not be refundable. For project-based work, refunds are generally not issued for work already completed and delivered.</p>
+                        <h5 class="font-bold text-slate-800">3. Dispute Resolution</h5>
+                        <p>If you are unhappy with a service, please contact us immediately at bestitpractices@gmail.com so we can resolve the issue.</p>
+                    </div>
+                </details>
             </div>
         </div>
     </section>
@@ -413,7 +487,7 @@
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-envelope mr-3 text-secondary"></i>
-                            <a href="mailto:contact@bestitpractices.com" class="hover:text-white">bestitpractices@gmail.com</a>
+                            <a href="mailto:bestitpractices@gmail.com" class="hover:text-white">bestitpractices@gmail.com</a>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-phone mr-3 text-secondary"></i>
@@ -426,8 +500,9 @@
             <div class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-600">
                 <p>&copy; 2024 Best IT Practices. All Rights Reserved.</p>
                 <div class="mt-4 md:mt-0 space-x-6">
-                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                    <a href="#privacy" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#terms" class="hover:text-white transition">Terms & Conditions</a>
+                    <a href="#refund" class="hover:text-white transition">Refund & Cancellation</a>
                 </div>
             </div>
         </div>
@@ -457,9 +532,17 @@
                 btn.querySelector('i').classList.remove('fa-times');
             });
         });
+        
+        // Auto-open details if hash matches on load
+        window.addEventListener('load', () => {
+            if(window.location.hash) {
+                const target = document.querySelector(window.location.hash);
+                if(target && target.tagName === 'DETAILS') {
+                    target.open = true;
+                    target.scrollIntoView({behavior: 'smooth'});
+                }
+            }
+        });
     </script>
 </body>
-
 </html>
-
-
